@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class BootStrapData implements CommandLineRunner {
+
     private final AuthorRepository authorRepository;
     private final BookRepository bookRepository;
     private final PublisherRepository publisherRepository;
@@ -25,7 +26,9 @@ public class BootStrapData implements CommandLineRunner {
     }
 
     @Override
-    public void run(String... args) throws Exception {  System.out.println("Started in Bootstrap");
+    public void run(String... args) throws Exception {
+
+        System.out.println("Started in Bootstrap");
 
         Publisher publisher = new Publisher();
         publisher.setName("SFG Publishing");
