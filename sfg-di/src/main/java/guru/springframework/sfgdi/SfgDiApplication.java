@@ -19,9 +19,9 @@ public class SfgDiApplication {
 
 		MyController myController = (MyController) ctx.getBean("myController");
 
-		String greeting = myController.sayHello();
 
-		System.out.println(greeting);
+		System.out.println("-----Primary bean");
+		System.out.println(myController.sayHello());
 
 		//Bean je objekt u springu
 		//ApplicationContext se brine o konfiguraciji beansa tj. objekata

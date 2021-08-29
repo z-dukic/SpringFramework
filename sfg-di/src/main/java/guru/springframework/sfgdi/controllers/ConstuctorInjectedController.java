@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 public class ConstuctorInjectedController {
 
     //@Autowired //Autowired nije potreban kod konstruktora
+    //Bez @Qualifeier Spring neće znati koji bean treba koristit i koristit će primary bean
     public ConstuctorInjectedController(@Qualifier("constructorGreetingService")GreetingService greetingService) {
         this.greetingService = greetingService;
     }
