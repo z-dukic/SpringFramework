@@ -1,9 +1,6 @@
 package guru.springframework.sfgdi;
 
-import guru.springframework.sfgdi.controllers.ConstuctorInjectedController;
-import guru.springframework.sfgdi.controllers.MyController;
-import guru.springframework.sfgdi.controllers.PropertyInjectedController;
-import guru.springframework.sfgdi.controllers.SetterInjectedController;
+import guru.springframework.sfgdi.controllers.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -14,8 +11,17 @@ public class SfgDiApplication {
 	public static void main(String[] args) {
 
 
+
+
 		//https://stackoverflow.com/questions/19615972/application-context-what-is-this
 		ApplicationContext ctx = SpringApplication.run(SfgDiApplication.class, args);
+
+		PetController petController = ctx.getBean("petController", PetController.class);
+		System.out.println("----The best pet is----");
+		System.out.println(petController.whichPetIsTheBest());
+
+		I18nContoller i18nContoller = (I18nContoller) ctx.getBean("i18nContoller");
+		System.out.println(i18nContoller.sayHello());
 
 		MyController myController = (MyController) ctx.getBean("myController");
 
@@ -23,9 +29,7 @@ public class SfgDiApplication {
 		System.out.println("-----Primary bean");
 		System.out.println(myController.sayHello());
 
-		//Bean je objekt u springu
-		//ApplicationContext se brine o konfiguraciji beansa tj. objekata
-
+		
 		System.out.println("------ Property");
 		PropertyInjectedController propertyInjectedController = (PropertyInjectedController) ctx.getBean("propertyInjectedController");
 		System.out.println(propertyInjectedController.getGreeting());
