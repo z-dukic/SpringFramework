@@ -10,9 +10,6 @@ public class SfgDiApplication {
 
 	public static void main(String[] args) {
 
-
-
-
 		//https://stackoverflow.com/questions/19615972/application-context-what-is-this
 		ApplicationContext ctx = SpringApplication.run(SfgDiApplication.class, args);
 
@@ -29,7 +26,7 @@ public class SfgDiApplication {
 		System.out.println("-----Primary bean");
 		System.out.println(myController.sayHello());
 
-		
+
 		System.out.println("------ Property");
 		PropertyInjectedController propertyInjectedController = (PropertyInjectedController) ctx.getBean("propertyInjectedController");
 		System.out.println(propertyInjectedController.getGreeting());
@@ -39,7 +36,6 @@ public class SfgDiApplication {
 		System.out.println(setterInjectedController.getGreeting());
 
 		System.out.println("-----Constructor");
-
 		ConstuctorInjectedController constuctorInjectedController=(ConstuctorInjectedController) ctx.getBean("constuctorInjectedController");
 		System.out.println(constuctorInjectedController.getGreeting());
 	}
